@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: minikube-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - path: apps/minikube
+            app: prometheus
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+  template:
+    metadata:
+      name: '{{app}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: main
+        path: '{{path}}' 
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated: 
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - createNamespace=true
+
