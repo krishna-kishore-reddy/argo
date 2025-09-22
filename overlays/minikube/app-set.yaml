@@ -15,6 +15,10 @@ spec:
             app: nginx
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: nginx
+          - path: apps/krishna-kishore
+            app: krishna-kishore
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: nginx
   template:
     metadata:
       name: '{{app}}'
