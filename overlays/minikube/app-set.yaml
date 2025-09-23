@@ -28,6 +28,10 @@ spec:
         repoURL: '{{repoURL}}'
         targetRevision: main
         path: '{{path}}' 
+        helm:
+          values: |
+            crds:
+              create: true
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
