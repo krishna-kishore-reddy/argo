@@ -19,6 +19,10 @@ spec:
             app: krishna-kishore
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: nginx
+          - path: apps/nginx-helm/nginx
+            app: nginx-helm
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: nginx-helm
   template:
     metadata:
       name: '{{app}}'
@@ -28,10 +32,6 @@ spec:
         repoURL: '{{repoURL}}'
         targetRevision: main
         path: '{{path}}' 
-        helm:
-          values: |
-            crds:
-              create: true
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
