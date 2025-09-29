@@ -19,6 +19,10 @@ spec:
             app: nginx-helm
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: nginx-helm
+          - path: apps/own-website
+            app: portfolio
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: website
   template:
     metadata:
       name: '{{app}}'
