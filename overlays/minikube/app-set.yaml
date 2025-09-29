@@ -23,10 +23,10 @@ spec:
             app: portfolio
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: website
-         # - path: apps/metallb
-         #   app: metallb
-         #   repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-         #   namespace: metallb-system 
+          - path: apps/metallb
+            app: metallb
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: metallb-system 
   template:
     metadata:
       name: '{{app}}'
