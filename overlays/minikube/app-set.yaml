@@ -26,7 +26,11 @@ spec:
           - path: apps/metallb
             app: metallb
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-            namespace: metallb-system 
+            namespace: metallb-system
+          - path: apps/minikube
+            app: Prometheus
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: prometheus 
   template:
     metadata:
       name: '{{app}}'
