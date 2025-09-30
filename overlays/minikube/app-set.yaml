@@ -30,7 +30,11 @@ spec:
           #- path: apps/minikube
           #  app: prometheus
           #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-          #  namespace: prometheus 
+          #  namespace: prometheus
+          - path: apps/prometheus-operator
+            app: prometheus-crds
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: prometheus 
   template:
     metadata:
       name: '{{app}}'
