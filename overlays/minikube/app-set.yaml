@@ -27,14 +27,14 @@ spec:
           #  app: metallb
           #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
           #  namespace: metallb-system
-          #- path: apps/prometheus-operator
-          #  app: prometheus-crds
-          #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-          #  namespace: monitoring
-          #- path: apps/prometheus
-          #  app: prometheus-rules-alert-config
-          #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-          #  namespace: prometheus 
+          - path: apps/prometheus-operator
+            app: prometheus-crds
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: monitoring
+          - path: apps/prometheus
+            app: prometheus-rules-alert-config
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: prometheus 
   template:
     metadata:
       name: '{{app}}'
