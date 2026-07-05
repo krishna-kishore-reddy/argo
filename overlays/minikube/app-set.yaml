@@ -43,7 +43,7 @@ spec:
     metadata:
       name: '{{app}}'
     spec:
-      project: default
+      project: us-prod 
       source:
         repoURL: '{{repoURL}}'
         targetRevision: main
