@@ -35,6 +35,10 @@ spec:
             app: prometheus-rules-alert-config
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: prometheus 
+          - app: cert-manager
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/cert-manager
+            namespace: cert-manager
   template:
     metadata:
       name: '{{app}}'

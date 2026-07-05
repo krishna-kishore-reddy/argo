@@ -1,0 +1,45 @@
+global:
+  domain: argocd.inarm.com
+configs:
+  cm:
+    kustomize.buildOptions: "--enable-helm"
+    oidc.config: |
+      name: Okta
+      issuer: https://integrator-1110015.okta.com/oauth2/default
+      clientID: 0oa14utpvi5tEN1oq698
+      clientSecret: Mct2OFCGmzAo8chGYOLmv3gvemlrNuYzQuWDcBPZhayAB9dcjEvUBOKQs8Bz-yJz
+      redirectURI: https://argocd.inarm.com/auth/callback
+      requestedScopes:
+        - openid
+        - profile
+        - email
+        - groups
+    url: https://argocd.inarm.com
+  params:
+    server.insecure: "true"
+
+redis-ha:
+  enabled: false
+
+controller:
+  replicas: 3
+
+server:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+
+repoServer:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+
+applicationSet:
+  replicas: 2
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: kong 
+    tls: false
+
