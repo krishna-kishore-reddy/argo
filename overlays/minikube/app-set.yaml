@@ -39,6 +39,10 @@ spec:
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             path: apps/cert-manager
             namespace: cert-manager
+          - app: backstage
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/backstage
+            namespace: backstage
   template:
     metadata:
       name: '{{app}}'
