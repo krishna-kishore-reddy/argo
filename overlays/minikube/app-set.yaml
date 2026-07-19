@@ -44,13 +44,13 @@ spec:
             path: apps/backstage
             namespace: backstage
          - app: metrics-server
-            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-            path: apps/metrics-server
-            namespace: kube-system
+           repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+           path: apps/metrics-server
+           namespace: kube-system
          - app: root-app
-            repoURL: https://github.com/krishna-kishore-reddy/argo.git
-            path: overlays
-            namespace: kube-system
+           repoURL: https://github.com/krishna-kishore-reddy/argo.git
+           path: overlays
+           namespace: kube-system
 
   template:
     metadata:
