@@ -41,5 +41,9 @@ server:
   ingress:
     enabled: true
     ingressClassName: kong 
-    tls: false
-
+    annotations:
+      cert-manager.io/cluster-issuer: inarm-cluster-issuer
+    tls: true
+rbac:
+  policy.csv: |
+    g, Everyone, role:admin

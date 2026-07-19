@@ -1,0 +1,76 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: AppProject
+# metadata:
+#   name: <project-name>
+#   namespace: argocd
+# spec:
+#   description: <what this project is for>
+
+#   # Which git repos Applications in this project may pull from
+#   sourceRepos:
+#     - 'https://github.com/org/repo.git'
+
+#   # Which cluster+namespace combos Applications may deploy to
+#   destinations:
+#     - namespace: <namespace>
+#       server: https://kubernetes.default.svc   # in-cluster
+#       # server: https://<external-cluster-api> # for multi-cluster
+
+#   # Cluster-scoped resources this project's apps are allowed to manage
+#   clusterResourceWhitelist:
+#     - group: ''
+#       kind: Namespace
+
+#   # Namespace-scoped resources allowed (default: all, if omitted)
+#   namespaceResourceWhitelist:
+#     - group: '*'
+#       kind: '*'
+
+#   # Explicitly deny dangerous kinds even if whitelisted above
+#   namespaceResourceBlacklist:
+#     - group: ''
+#       kind: ResourceQuota
+#     - group: ''
+#       kind: LimitRange
+
+#   # Roles scoped to this project (used by RBAC below)
+#   roles:
+#     - name: developer
+#       description: Read/sync access for devs
+#       policies:
+#         - p, proj:<project-name>:developer, applications, get, <project-name>/*, allow
+#         - p, proj:<project-name>:developer, applications, sync, <project-name>/*, allow
+#       groups:
+#         - my-org-devs   # Okta/OIDC group bound directly at project level
+
+#     - name: admin
+#       description: Full control within this project
+#       policies:
+#         - p, proj:<project-name>:admin, applications, *, <project-name>/*, allow
+#       groups:
+#         - my-org-platform-admins
+
+#   # Restrict who can create Applications that reference this project
+#   # (orphaned resources monitoring, sync windows, signature verification, etc. also go here)
+#   orphanedResources:
+#     warn: true
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: us-prod
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/krishna-kishore-reddy/gitops.git'
+    - 'https://github.com/krishna-kishore-reddy/argo.git'
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+  roles:
+    - name: prod-us
+      policies:
+        - p, proj:us-prod:prod-us, applications, sync, us-prod/*, allow
+        - p, proj:us-prod:prod-us, applications, *, us-prod/*, allow
+      groups:
+        - Everyone
