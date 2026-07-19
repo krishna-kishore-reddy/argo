@@ -43,6 +43,10 @@ spec:
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             path: apps/backstage
             namespace: backstage
+         - app: metrics-server
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/metrics-server
+            namespace: kube-system
   template:
     metadata:
       name: '{{app}}'
