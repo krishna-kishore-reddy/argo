@@ -19,26 +19,26 @@ spec:
             app: nginx-helm
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: nginx-helm
-          - path: apps/own-website
-            app: portfolio
-            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-            namespace: website
+          #- path: apps/own-website
+          #  app: portfolio
+          #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+          #  namespace: website
           #- path: apps/metallb
           #  app: metallb
           #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
           #  namespace: metallb-system
-          - path: apps/prometheus-operator
-            app: prometheus-crds
-            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-            namespace: monitoring
+          #- path: apps/prometheus-operator
+          #  app: prometheus-crds
+          #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+          #  namespace: monitoring
           - path: apps/prometheus
             app: prometheus-rules-alert-config
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: prometheus 
-          - app: cert-manager
-            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-            path: apps/cert-manager
-            namespace: cert-manager
+          #- app: cert-manager
+          #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+          #  path: apps/cert-manager
+          #  namespace: cert-manager
           - app: backstage
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             path: apps/backstage
@@ -47,6 +47,11 @@ spec:
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             path: apps/metrics-server
             namespace: kube-system
+         - app: root-app
+            repoURL: https://github.com/krishna-kishore-reddy/argo.git
+            path: overlays
+            namespace: kube-system
+
   template:
     metadata:
       name: '{{app}}'
