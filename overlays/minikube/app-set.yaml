@@ -51,6 +51,11 @@ spec:
             repoURL: https://github.com/krishna-kishore-reddy/argo.git
             path: overlays
             namespace: kube-system
+          - app: opentelemetry-oprator
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/opentelemetry-operator
+            namespace: opentelemetry-oprator
+            
   template:
     metadata:
       name: '{{app}}'
