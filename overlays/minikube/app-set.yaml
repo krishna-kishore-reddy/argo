@@ -28,17 +28,17 @@ spec:
           #  repoURL: https://github.com/krishna-kishore-reddy/gitops.git
           #  namespace: metallb-system
           - path: apps/prometheus-operator
-           app: prometheus-crds
-           repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-           namespace: monitoring
+            app: prometheus-crds
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            namespace: monitoring
           - path: apps/prometheus
             app: prometheus-rules-alert-config
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             namespace: prometheus 
           - app: cert-manager
-           repoURL: https://github.com/krishna-kishore-reddy/gitops.git
-           path: apps/cert-manager
-           namespace: cert-manager
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/cert-manager
+            namespace: cert-manager
           - app: backstage
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             path: apps/backstage
