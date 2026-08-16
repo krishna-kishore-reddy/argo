@@ -67,10 +67,14 @@ spec:
   destinations:
     - namespace: '*'
       server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
   roles:
     - name: prod-us
       policies:
         - p, proj:us-prod:prod-us, applications, sync, us-prod/*, allow
         - p, proj:us-prod:prod-us, applications, *, us-prod/*, allow
+        - g, Everyone, role:admin
       groups:
         - Everyone
