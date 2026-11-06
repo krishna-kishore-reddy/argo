@@ -55,6 +55,18 @@ spec:
             repoURL: https://github.com/krishna-kishore-reddy/gitops.git
             path: apps/opentelemetry-operator
             namespace: opentelemetry-oprator
+          - app: elastic-search-operator
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/elastic-search-operator
+            namespace: observability
+          - app: elasticsearch
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/elasticsearch
+            namespace: observability
+          - app: kibana
+            repoURL: https://github.com/krishna-kishore-reddy/gitops.git
+            path: apps/kibana
+            namespace: observability        
             
   template:
     metadata:
